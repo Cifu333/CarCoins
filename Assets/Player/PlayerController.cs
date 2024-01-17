@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
         UpdatePlayerPosition(horizontal, vertical);
 
         // Actualizar la animación del jugador
-        UpdatePlayerAnimation(horizontal, vertical);
+      //  UpdatePlayerAnimation(horizontal, vertical);
     }
 
     private void UpdatePlayerPosition(float horizontal, float vertical)
@@ -69,11 +69,13 @@ public class PlayerController : MonoBehaviour
         transform.position += movement * speed * Time.fixedDeltaTime;
     }
 
+    /* Dani negro esto es una animacon pero es de persona no de coche asi q diria q nada mañana lo revisamos uwu
     private void UpdatePlayerAnimation(float horizontal, float vertical)
     {
         // Actualizar la animación del jugador según la dirección
-        anim.SetFloat("Horizontal", horizontal);
-        anim.SetFloat("Vertical", vertical);
-        anim.SetFloat("Speed", Mathf.Abs(horizontal) + Mathf.Abs(vertical));
+        //anim.SetFloat("Horizontal", horizontal);
+       // anim.SetFloat("Vertical", vertical);
+       // anim.SetFloat("Speed", Mathf.Abs(horizontal) + Mathf.Abs(vertical));
     }
+    */
 }
