@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 49fc20e9656fcb1468c25a35c13465bc
+guid: 4f2331d83c666394787a2469140e221e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -136,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: platanotonto_0
+      name: Plantas_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 3
-        width: 31
-        height: 59
+        x: 428
+        y: 419
+        width: 69
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,8 +150,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ffb03a4fc15a864f974602156e4795f
-      internalID: -1891951458
+      spriteID: 6dc8c28351b03bf43b6a0b5110b9a0f4
+      internalID: 1148455757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plantas_1
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 273
+        width: 96
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d6d549628ad25b4e84e574e6d0bf91f
+      internalID: 1215448666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plantas_2
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d78562699f3f01b41a76ac3b6796a4da
+      internalID: -401642245
       vertices: []
       indices: 
       edges: []
@@ -167,7 +209,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      platanotonto_0: -1891951458
+      Plantas_0: 1148455757
+      Plantas_1: 1215448666
+      Plantas_2: -401642245
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
