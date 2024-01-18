@@ -7,10 +7,14 @@ public class PlayerController : MonoBehaviour
 {
     private Input_Manager inputManager;
 
-    [SerializeField] private float speed = 5;
+    [SerializeField] private float acceleration = 5;
+    [SerializeField] private float angularAcceleration = 10;
+    private float velocity = 0;
 
     private enum directions { NONE, UP, DOWN, RIGHT, LEFT };
     private directions dir = directions.NONE;
+
+    private CharacterController characterController;
 
     SpriteRenderer sr;
     Animator anim;
@@ -21,6 +25,7 @@ public class PlayerController : MonoBehaviour
 
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        characterController = GetComponent<CharacterController>();
 
         dir = directions.NONE;
     }
@@ -64,9 +69,63 @@ public class PlayerController : MonoBehaviour
 
     private void UpdatePlayerPosition(float horizontal, float vertical)
     {
+        if(horizontal != 0 && (velocity < -1 || velocity > 1))
+        {
+            transform.Rotate(new Vector3(0, 0, angularAcceleration * -horizontal));
+            if (velocity > 0)
+            {
+                velocity -= acceleration * Time.deltaTime;
+            }
+            else if (velocity < 0)
+            {
+                velocity += acceleration * Time.deltaTime;
+            }
+        }
+        else if (horizontal != 0)
+        {
+            transform.Rotate(new Vector3(0, 0, angularAcceleration * velocity * velocity * -horizontal));
+        }
         // Calcular la nueva posición del jugador basada en la velocidad y la dirección
-        Vector3 movement = new Vector3(horizontal, vertical, 0f);
-        transform.position += movement * speed * Time.fixedDeltaTime;
+        if (vertical != 0) {
+            velocity += acceleration * vertical * Time.deltaTime;
+            if (vertical < 0 && velocity > 0)
+            {
+                velocity -= acceleration * 5 * Time.deltaTime;
+            }
+            if (vertical > 0 && velocity < 0)
+            {
+                velocity += acceleration * 5 * Time.deltaTime;
+            }
+        }
+        else
+        {
+            if (velocity < 0.01f && velocity > -0.01f)
+            {
+                velocity = 0;
+            }
+            else if (velocity > 0)
+            {
+                velocity -= acceleration * Time.deltaTime; 
+            }
+            else if (velocity < 0)
+            {
+                velocity += acceleration * Time.deltaTime;
+            }
+        }
+
+        if (velocity > 12)
+        {
+            velocity = 12;
+        }
+
+        if (velocity < -4) 
+        {
+            velocity = -4;
+        }
+
+        Vector3 movement = transform.up * velocity * Time.deltaTime;
+        characterController.Move(movement);
+        Debug.Log(velocity);
     }
 
     /* Dani negro esto es una animacon pero es de persona no de coche asi q diria q nada mañana lo revisamos uwu
