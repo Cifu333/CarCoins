@@ -8,13 +8,13 @@ public class PlayerController : MonoBehaviour
     private Input_Manager inputManager;
 
     [SerializeField] private float acceleration = 5;
-    [SerializeField] private float angularAcceleration = 10;
+    [SerializeField] private float angularAcceleration = 7;
     private float velocity = 0;
 
     private enum directions { NONE, UP, DOWN, RIGHT, LEFT };
     private directions dir = directions.NONE;
 
-    private CharacterController characterController;
+    private Rigidbody2D rb;
 
     SpriteRenderer sr;
     Animator anim;
@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-        characterController = GetComponent<CharacterController>();
+        rb = GetComponent<Rigidbody2D>();
 
         dir = directions.NONE;
     }
@@ -35,7 +35,6 @@ public class PlayerController : MonoBehaviour
         float horizontal = inputManager.GetLeftAxisValue().x;
         float vertical = inputManager.GetLeftAxisValue().y;
 
-        Debug.Log("Horizontal: " + horizontal + ", Vertical: " + vertical);
 
 
         // Determinar la dirección
@@ -69,21 +68,21 @@ public class PlayerController : MonoBehaviour
 
     private void UpdatePlayerPosition(float horizontal, float vertical)
     {
-        if(horizontal != 0 && (velocity < -1 || velocity > 1))
+        if(horizontal != 0 && (velocity < -1.5 || velocity > 1.5))
         {
             transform.Rotate(new Vector3(0, 0, angularAcceleration * -horizontal));
             if (velocity > 0)
             {
-                velocity -= acceleration * Time.deltaTime;
+                velocity -= acceleration / 2 * Time.deltaTime;
             }
             else if (velocity < 0)
             {
-                velocity += acceleration * Time.deltaTime;
+                velocity += acceleration / 2 * Time.deltaTime;
             }
         }
         else if (horizontal != 0)
         {
-            transform.Rotate(new Vector3(0, 0, angularAcceleration * velocity * velocity * -horizontal));
+            transform.Rotate(new Vector3(0, 0, angularAcceleration * velocity / 2 * -horizontal));
         }
         // Calcular la nueva posición del jugador basada en la velocidad y la dirección
         if (vertical != 0) {
@@ -99,7 +98,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            if (velocity < 0.01f && velocity > -0.01f)
+            if (velocity < 0.1f && velocity > -0.1f)
             {
                 velocity = 0;
             }
@@ -123,9 +122,19 @@ public class PlayerController : MonoBehaviour
             velocity = -4;
         }
 
-        Vector3 movement = transform.up * velocity * Time.deltaTime;
-        characterController.Move(movement);
-        Debug.Log(velocity);
+        Vector3 movement = transform.position + transform.up * velocity * Time.deltaTime;
+        rb.MovePosition(movement);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag != "Coin")
+        {
+            for(int i = 0; i < gameObject.transform.childCount; i++)
+            {
+
+            }
+        }
     }
 
     /* Dani negro esto es una animacon pero es de persona no de coche asi q diria q nada mañana lo revisamos uwu
