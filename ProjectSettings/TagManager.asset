@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Trailer
+  - Coin
   layers:
   - Default
   - TransparentFX
