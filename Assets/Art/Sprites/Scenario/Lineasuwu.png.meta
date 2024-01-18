@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fb734c3d062aa0844988a794cc838359
+guid: fab49332781fc9d4a8b9b5864533e124
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Escenario_0
+      name: Lineasuwu_0
       rect:
         serializedVersion: 2
         x: 0
@@ -150,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ce1677c4a594594f954654c53c5bb99
-      internalID: 1147084048
+      spriteID: 2c8400c22ba7dd64db662ca0f73cfbe8
+      internalID: -1768744050
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Escenario_1
+      name: Lineasuwu_1
       rect:
         serializedVersion: 2
         x: 128
@@ -171,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d87621a98e1fb04e89bd650964b730a
-      internalID: 1805674987
+      spriteID: d25b721d61d834848a7b0d3ec69d8a2a
+      internalID: -1623656237
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Escenario_2
+      name: Lineasuwu_2
       rect:
         serializedVersion: 2
         x: 256
@@ -192,14 +192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4372de41343b5b40bcea9a9f6b4ea1f
-      internalID: 1124210353
+      spriteID: 48faf5a2eb4b6a9418327baccb14b43d
+      internalID: -2050085861
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Escenario_3
+      name: Lineasuwu_3
       rect:
         serializedVersion: 2
         x: 0
@@ -213,14 +213,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe553cd90d8cce14696eb51d698c7cde
-      internalID: 1391259355
+      spriteID: 2912f38d814c41f4a98bb02be88b53ee
+      internalID: -1479561314
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Escenario_4
+      name: Lineasuwu_4
       rect:
         serializedVersion: 2
         x: 256
@@ -234,14 +234,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4cfa7a6c13cfcda4c8df854bcec966ba
-      internalID: -399074619
+      spriteID: 44e670dc59c23b64c9ba10cbc675d054
+      internalID: 1463799889
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Escenario_5
+      name: Lineasuwu_5
       rect:
         serializedVersion: 2
         x: 384
@@ -255,14 +255,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dae28c8179275c848bdf77cc2effd75b
-      internalID: -743824124
+      spriteID: 021402690dd3af74188cbac6da464e48
+      internalID: -1122036912
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Escenario_6
+      name: Lineasuwu_6
       rect:
         serializedVersion: 2
         x: 0
@@ -276,14 +276,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a359382669f52d4497563f0487dd855
-      internalID: 1601680027
+      spriteID: 0213d4af24d593446a463e452774de1e
+      internalID: 1651258718
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Escenario_7
+      name: Lineasuwu_7
       rect:
         serializedVersion: 2
         x: 128
@@ -297,14 +297,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f70f5a2a95e9dc74d8b518e915d94a08
-      internalID: 1138577330
+      spriteID: bbd92e3a5800c5c4cbf5d34e56548081
+      internalID: -1228986029
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Escenario_8
+      name: Lineasuwu_8
       rect:
         serializedVersion: 2
         x: 256
@@ -318,8 +318,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de39cf57d08c00f4b8483e3d8e93b228
-      internalID: 1218999899
+      spriteID: 2f6e42b9b3bcac84b9f1c0cd2c2e23ca
+      internalID: 1051652524
       vertices: []
       indices: 
       edges: []
@@ -335,15 +335,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Escenario_0: 1147084048
-      Escenario_1: 1805674987
-      Escenario_2: 1124210353
-      Escenario_3: 1391259355
-      Escenario_4: -399074619
-      Escenario_5: -743824124
-      Escenario_6: 1601680027
-      Escenario_7: 1138577330
-      Escenario_8: 1218999899
+      Lineasuwu_0: -1768744050
+      Lineasuwu_1: -1623656237
+      Lineasuwu_2: -2050085861
+      Lineasuwu_3: -1479561314
+      Lineasuwu_4: 1463799889
+      Lineasuwu_5: -1122036912
+      Lineasuwu_6: 1651258718
+      Lineasuwu_7: -1228986029
+      Lineasuwu_8: 1051652524
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
