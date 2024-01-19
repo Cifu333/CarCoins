@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,29 +6,39 @@ using UnityEngine.UI;
 
 public class Temporizador : MonoBehaviour
 {
-    [SerializeField] int min, seg;
+    [SerializeField] int min;
+    [SerializeField] float seg;
     [SerializeField] Text tiempo;
 
-    private float restante;
     private bool encendido;
+
+    private bool gameOver;
 
     private void Awake()
     {
-        restante = (min * 60) + seg;
+
     }
 
     private void Update()
     {
         if (encendido) 
         {
-            restante += Time.deltaTime;
-            if (restante < 1 )
+            seg -= Time.deltaTime;
+            if (seg <= 0)
             {
-                //game over
+                min--;
             }
-            int tempMin = Mathf.FloorToInt( restante /60);
-            int temoSeg = Mathf.FloorToInt( tempMin % 60 );
-          //  tiempo.text = string.Format("")
+            int segs = (int)seg;
+            tiempo.text = string.Format(min.ToString() + ":" + segs.ToString());
+            if (min <= 0 && seg <= 0)
+            {
+                gameOver = true;
+            }
         }
+    }
+
+    public bool GetGameOver()
+    {
+        return gameOver;
     }
 }
