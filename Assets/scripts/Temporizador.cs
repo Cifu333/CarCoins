@@ -25,6 +25,9 @@ public class Temporizador : MonoBehaviour
             {
                 //game over
             }
+            int tempMin = Mathf.FloorToInt( restante /60);
+            int temoSeg = Mathf.FloorToInt( tempMin % 60 );
+            tiempo.text = string.Format("")
         }
     }
 }
