@@ -71,62 +71,79 @@ public class PlayerController : MonoBehaviour
 
     private void UpdatePlayerPosition(float horizontal, float vertical)
     {
-        if(horizontal != 0 && (velocity < -1.5 || velocity > 1.5))
+        if (vertical != 0)
+        {
+            rb.AddForce(transform.up * acceleration * vertical);
+        }
+
+        if(rb.velocity.magnitude > 12)
+        {
+
+        }
+
+        if (horizontal != 0)
         {
             transform.Rotate(new Vector3(0, 0, angularAcceleration * -horizontal));
-            if (velocity > 0)
-            {
-                velocity -= acceleration / 2 * Time.deltaTime;
-            }
-            else if (velocity < 0)
-            {
-                velocity += acceleration / 2 * Time.deltaTime;
-            }
+            rb.velocity = transform.up.normalized * rb.velocity.magnitude;
         }
-        else if (horizontal != 0)
-        {
-            transform.Rotate(new Vector3(0, 0, angularAcceleration * velocity / 2 * -horizontal));
-        }
-        // Calcular la nueva posición del jugador basada en la velocidad y la dirección
-        if (vertical != 0) {
-            velocity += acceleration * vertical * Time.deltaTime;
-            if (vertical < 0 && velocity > 0)
+            /*
+            if(horizontal != 0 && (velocity < -1.5 || velocity > 1.5))
             {
-                velocity -= acceleration * 5 * Time.deltaTime;
+                transform.Rotate(new Vector3(0, 0, angularAcceleration * -horizontal));
+                if (velocity > 0)
+                {
+                    velocity -= acceleration / 2 * Time.deltaTime;
+                }
+                else if (velocity < 0)
+                {
+                    velocity += acceleration / 2 * Time.deltaTime;
+                }
             }
-            if (vertical > 0 && velocity < 0)
+            else if (horizontal != 0)
             {
-                velocity += acceleration * 5 * Time.deltaTime;
+                transform.Rotate(new Vector3(0, 0, angularAcceleration * velocity / 2 * -horizontal));
             }
-        }
-        else
-        {
-            if (velocity < 0.1f && velocity > -0.1f)
+            // Calcular la nueva posición del jugador basada en la velocidad y la dirección
+            if (vertical != 0) {
+                velocity += acceleration * vertical * Time.deltaTime;
+                if (vertical < 0 && velocity > 0)
+                {
+                    velocity -= acceleration * 5 * Time.deltaTime;
+                }
+                if (vertical > 0 && velocity < 0)
+                {
+                    velocity += acceleration * 5 * Time.deltaTime;
+                }
+            }
+            else
             {
-                velocity = 0;
+                if (velocity < 0.1f && velocity > -0.1f)
+                {
+                    velocity = 0;
+                }
+                else if (velocity > 0)
+                {
+                    velocity -= acceleration * Time.deltaTime; 
+                }
+                else if (velocity < 0)
+                {
+                    velocity += acceleration * Time.deltaTime;
+                }
             }
-            else if (velocity > 0)
-            {
-                velocity -= acceleration * Time.deltaTime; 
-            }
-            else if (velocity < 0)
-            {
-                velocity += acceleration * Time.deltaTime;
-            }
-        }
 
-        if (velocity > 12)
-        {
-            velocity = 12;
-        }
+            if (velocity > 6)
+            {
+                velocity = 12;
+            }
 
-        if (velocity < -4) 
-        {
-            velocity = -4;
-        }
+            if (velocity < -4) 
+            {
+                velocity = -4;
+            }
 
-        Vector3 movement = transform.position + transform.up * velocity * Time.deltaTime;
-        rb.MovePosition(movement);
+            Vector3 movement = transform.position + transform.up * velocity * Time.deltaTime;
+            rb.MovePosition(movement);
+            */
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

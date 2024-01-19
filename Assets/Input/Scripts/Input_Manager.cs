@@ -11,6 +11,8 @@ public class Input_Manager : MonoBehaviour
 
     private Vector2 leftAxisValue = Vector2.zero;  // Keyboard [WASD]
 
+    private bool breakStat;
+
     private void Awake()
     {
         if (_INPUT_MANAGER != null && _INPUT_MANAGER != this)
@@ -23,6 +25,8 @@ public class Input_Manager : MonoBehaviour
             
             playerInputs.Character.Enable();
             playerInputs.Character.Movement.performed += LeftAxisUpdate;
+            playerInputs.Character.Break.started += BreakInit;
+            playerInputs.Character.Break.canceled += BreakCancel;
 
             _INPUT_MANAGER = this;
             DontDestroyOnLoad(this.gameObject);
@@ -42,5 +46,20 @@ public class Input_Manager : MonoBehaviour
     public Vector2 GetLeftAxisValue()
     {
         return leftAxisValue;
+    }
+
+    private void BreakInit(InputAction.CallbackContext context)
+    {
+        breakStat = true;
+    }
+
+    private void BreakCancel(InputAction.CallbackContext context)
+    {
+        breakStat = false;
+    }
+
+    public bool GetBreak()
+    {
+        return breakStat;
     }
 }
