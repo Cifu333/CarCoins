@@ -76,14 +76,13 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(transform.up * acceleration * vertical);
         }
 
-        if(rb.velocity.magnitude > 12)
-        {
-
-        }
-
         if (horizontal != 0)
         {
-            transform.Rotate(new Vector3(0, 0, angularAcceleration * -horizontal));
+            if (rb.velocity.magnitude > 1)
+                transform.Rotate(new Vector3(0, 0, angularAcceleration * -horizontal));
+            else
+                transform.Rotate(new Vector3(0, 0, angularAcceleration * -horizontal * rb.velocity.magnitude));
+
             if (!inputManager.GetBreak())
             {
                 rb.velocity = transform.up.normalized * rb.velocity.magnitude;
