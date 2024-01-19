@@ -25,7 +25,6 @@ public class Temporizador : MonoBehaviour
             {
                 //game over
             }
-            int 
         }
     }
 }

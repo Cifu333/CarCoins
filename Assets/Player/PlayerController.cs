@@ -84,7 +84,10 @@ public class PlayerController : MonoBehaviour
         if (horizontal != 0)
         {
             transform.Rotate(new Vector3(0, 0, angularAcceleration * -horizontal));
-            rb.velocity = transform.up.normalized * rb.velocity.magnitude;
+            if (!inputManager.GetBreak())
+            {
+                rb.velocity = transform.up.normalized * rb.velocity.magnitude;
+            }
         }
             /*
             if(horizontal != 0 && (velocity < -1.5 || velocity > 1.5))
