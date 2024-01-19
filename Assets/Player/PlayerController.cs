@@ -19,15 +19,18 @@ public class PlayerController : MonoBehaviour
     SpriteRenderer sr;
     Animator anim;
 
-    private void Start()
+    private void Awake()
     {
-        inputManager = Input_Manager._INPUT_MANAGER;
-
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
 
         dir = directions.NONE;
+    }
+
+    private void Start()
+    {
+        inputManager = Input_Manager._INPUT_MANAGER;
     }
 
     private void FixedUpdate()
@@ -132,7 +135,10 @@ public class PlayerController : MonoBehaviour
         {
             for(int i = 0; i < gameObject.transform.childCount; i++)
             {
-
+                if(gameObject.transform.GetChild(i).gameObject.tag == "Coin")
+                {
+                    gameObject.transform.GetChild(i).gameObject.GetComponent<Coin>().Yeeet();
+                }
             }
         }
     }
