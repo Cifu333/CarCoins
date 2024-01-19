@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour
     private float velocity = 0;
 
     private enum directions { NONE, UP, DOWN, RIGHT, LEFT };
-    private directions dir = directions.NONE;
+    private directions dirH = directions.NONE;
+    private directions dirV = directions.NONE;
 
     private Rigidbody2D rb;
 
@@ -24,8 +25,6 @@ public class PlayerController : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-
-        dir = directions.NONE;
     }
 
     private void Start()
@@ -43,23 +42,24 @@ public class PlayerController : MonoBehaviour
         // Determinar la dirección
         if (horizontal > 0)
         {
-            dir = directions.RIGHT;
+            dirH = directions.RIGHT;
         }
         else if (horizontal < 0)
         {
-            dir = directions.LEFT;
-        }
-        else if (vertical > 0)
-        {
-            dir = directions.UP;
-        }
-        else if (vertical < 0)
-        {
-            dir = directions.DOWN;
+            dirH = directions.LEFT;
         }
         else
         {
-            dir = directions.NONE;
+            dirH = directions.NONE;
+        }
+
+        if (vertical > 0)
+        {
+            dirV = directions.UP;
+        }
+        else if (vertical < 0)
+        {
+            dirV = directions.DOWN;
         }
 
         // Actualizar la posición del jugador
@@ -85,9 +85,9 @@ public class PlayerController : MonoBehaviour
 
             if (!inputManager.GetBreak())
             {
-                if (vertical > 0)
+                if (dirV == directions.UP)
                     rb.velocity = transform.up.normalized * rb.velocity.magnitude;
-                else if(vertical < 0)
+                else if(dirV == directions.DOWN)
                 {
                     rb.velocity = -transform.up.normalized * rb.velocity.magnitude;
                 }

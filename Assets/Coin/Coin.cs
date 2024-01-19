@@ -44,6 +44,6 @@ public class Coin : MonoBehaviour
         pickCounter = 0;
         transform.parent = null;
         rb.isKinematic = false;
-        rb.AddForce(new Vector2(Random.Range(-3000f, 3000f), Random.Range(-3000f, 3000f)));
+        rb.AddForce(new Vector2(Random.Range(-30f, 30f), Random.Range(-30f, 30f)));
     }
 }
