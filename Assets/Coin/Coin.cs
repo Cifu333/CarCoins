@@ -10,6 +10,9 @@ public class Coin : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    [SerializeField]
+    private Collider2D coll;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -33,6 +36,7 @@ public class Coin : MonoBehaviour
                     transform.parent = collision.gameObject.transform;
                     picked = true;
                     rb.isKinematic = true;
+                    coll.enabled = false;
                 }
             }
         }
@@ -44,6 +48,7 @@ public class Coin : MonoBehaviour
         pickCounter = 0;
         transform.parent = null;
         rb.isKinematic = false;
+        coll.enabled = true;
         rb.AddForce(new Vector2(Random.Range(-30f, 30f), Random.Range(-30f, 30f)));
     }
 }
