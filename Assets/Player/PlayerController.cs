@@ -85,7 +85,12 @@ public class PlayerController : MonoBehaviour
 
             if (!inputManager.GetBreak())
             {
-                rb.velocity = transform.up.normalized * rb.velocity.magnitude;
+                if (vertical > 0)
+                    rb.velocity = transform.up.normalized * rb.velocity.magnitude;
+                else if(vertical < 0)
+                {
+                    rb.velocity = -transform.up.normalized * rb.velocity.magnitude;
+                }
             }
         }
             /*
